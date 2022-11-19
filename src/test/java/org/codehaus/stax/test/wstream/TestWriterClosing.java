@@ -3,6 +3,7 @@ package org.codehaus.stax.test.wstream;
 import javax.xml.stream.*;
 
 import java.io.*;
+import java.nio.file.Files;
 
 /**
  * Simple unit tests for ensuring that the Stax implementation does not
@@ -18,7 +19,7 @@ public class TestWriterClosing
     public void testClosing()
         throws IOException, XMLStreamException
     {
-	File f = File.createTempFile("wstxtest", null);
+	File f = Files.createTempFile("wstxtest", null).toFile();
 	f.deleteOnExit();
 	OutputStream stream = new FileOutputStream(f);
 	OutputStreamWriter strw = new OutputStreamWriter(stream, "UTF-8");

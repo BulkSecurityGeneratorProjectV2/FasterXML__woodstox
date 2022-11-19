@@ -1,6 +1,8 @@
 package stax2.wstream;
 
 import java.io.*;
+import java.nio.file.Files;
+
 import javax.xml.stream.*;
 import javax.xml.transform.stream.StreamResult;
 
@@ -26,7 +28,7 @@ public class TestStreamResult
     public void testCreateUsingSystemId()
         throws IOException, XMLStreamException
     {
-        File tmpF = File.createTempFile("staxtest", ".xml");
+        File tmpF = Files.createTempFile("staxtest", ".xml").toFile();
         tmpF.deleteOnExit();
 
         XMLOutputFactory f = getOutputFactory();

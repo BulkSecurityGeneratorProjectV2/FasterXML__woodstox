@@ -1,6 +1,7 @@
 package stax2.wstream;
 
 import java.io.*;
+import java.nio.file.Files;
 
 import javax.xml.stream.*;
 
@@ -45,7 +46,7 @@ public class TestWriterConstruction
     File createTempFile()
         throws IOException
     {
-        File f = File.createTempFile("stax2test", null);
+        File f = Files.createTempFile("stax2test", null).toFile();
         f.deleteOnExit();
         return f;
    }

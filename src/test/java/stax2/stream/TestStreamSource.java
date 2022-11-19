@@ -1,6 +1,8 @@
 package stax2.stream;
 
 import java.io.*;
+import java.nio.file.Files;
+
 import javax.xml.stream.*;
 import javax.xml.transform.stream.StreamSource;
 
@@ -25,7 +27,7 @@ public class TestStreamSource
      */
     public void testCreateUsingSystemId() throws Exception
     {
-        File tmpF = File.createTempFile("staxtest", ".xml");
+        File tmpF = Files.createTempFile("staxtest", ".xml").toFile();
         tmpF.deleteOnExit();
 
         // First, need to write contents to the file

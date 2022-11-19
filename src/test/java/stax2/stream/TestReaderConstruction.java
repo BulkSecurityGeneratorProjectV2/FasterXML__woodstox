@@ -2,6 +2,7 @@ package stax2.stream;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 
 import javax.xml.stream.*;
 
@@ -129,7 +130,7 @@ public class TestReaderConstruction
     File writeToTempFile(String text)
         throws IOException
     {
-        File f = File.createTempFile("stax2test", null);
+        File f = Files.createTempFile("stax2test", null).toFile();
         Writer w = new OutputStreamWriter(new FileOutputStream(f), "UTF-8");
         w.write(generateXML(text));
         w.flush();
